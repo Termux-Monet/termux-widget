@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    namespace "com.termux.widget"
     compileSdkVersion project.properties.compileSdkVersion.toInteger()
     def appVersionName = System.getenv("TERMUX_WIDGET_APP_VERSION_NAME") ?: ""
     def apkVersionTag = System.getenv("TERMUX_WIDGET_APK_VERSION_TAG") ?: ""
@@ -65,18 +66,18 @@ android {
 
 dependencies {
     // required for TermuxWidgetControlsProviderService
-    implementation "org.reactivestreams:reactive-streams:1.0.3"
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
+    implementation 'org.reactivestreams:reactive-streams:1.0.4'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
 
-    implementation "androidx.annotation:annotation:1.2.0"
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation "com.google.guava:guava:24.1-jre"
-    implementation 'com.termux.termux-app:termux-shared:f3ffc36bfd'
+    implementation 'androidx.annotation:annotation:1.8.0'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.google.guava:guava:33.3.0-android'
+    implementation 'com.termux.termux-app:termux-shared:0.119.0-beta.1'
 
     // Use if below libraries are published locally by termux-app with `./gradlew publishReleasePublicationToMavenLocal` and used with `mavenLocal()`.
     // If updates are done, republish there and sync project with gradle files here
     // https://github.com/termux/termux-app/wiki/Termux-Libraries
-    //implementation 'com.termux:termux-shared:0.117'
+    //implementation 'com.termux.termux-app:termux-shared:v0.118.0'
 }
 
 task versionName {
